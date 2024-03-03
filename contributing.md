@@ -20,6 +20,6 @@ You're welcomed here to contribute to this repo. However, several important rule
   - References to a _new_ library without clear reason could cause your pull request being refused. e.g. using `pytorch` just for fun is not allowed. However, using _new_ library for adding new features, clean codes and other reasonable things is allowed.
   - __Comment-less codes are just garbage.__ Commit Anything with huge chunks of codes without comments is not allowed.
   - Public Repos are not for you to show-off, test and mess around. Please keep codes at a __Resonable Complexity__. Also, although we encourage the usage of new features, please do not use __DRAFT-LEVEL FEATURES__
-  - New codes should be published to dev branch instead of main
+  - New codes should be published to ___your own branch___ instead of main
 
 - ## Be Respect
