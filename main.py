@@ -6,6 +6,7 @@ import json
 from codes import textview
 #intialize objects
 main=base.inital()
+main.init_window()
 mainwindow=main.get_screen_object()
 bgexist=0
 textlist=textview.textview()
