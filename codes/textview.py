@@ -3,7 +3,6 @@ This file is used to display and operate any type of text in the game
 All texts should use this file
 Please do not use your own implentation
 '''
-import init as base
 import pygame as pg
 class textobj:
     text=""

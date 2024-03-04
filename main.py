@@ -1,9 +1,9 @@
-import init as base
+from codes import init as base
 import pygame as pg
 import pygame.locals as pgl 
 import os
 import json
-import textview
+from codes import textview
 #intialize objects
 main=base.inital()
 mainwindow=main.get_screen_object()
