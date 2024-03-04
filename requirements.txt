@@ -1,0 +1,9 @@
+
+colorama==0.4.6
+idna==3.6
+markdown-it-py==3.0.0
+mdurl==0.1.2
+pygame==2.5.2
+rich==13.7.1
+tqdm==4.66.2
+
