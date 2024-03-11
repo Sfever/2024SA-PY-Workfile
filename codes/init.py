@@ -1,3 +1,6 @@
+'''
+Codes used to initalize pygame and config
+'''
 import pygame as pg
 import warnings
 import json

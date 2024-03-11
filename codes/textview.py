@@ -39,21 +39,26 @@ class textobj:
     def delete_text(self):
         self.surface.set_alpha(0)
         pg.display.update()
+        print("Successed to remove text")
 
 class textview:
-    textlist=[]
     def __init__(self):
         self.textlist=[]
     def new_text(self):
         newtext=textobj()
         self.textlist.append(newtext)
+        print("A text is added successfully")
         return len(self.textlist)-1
     def del_text(self,tgt):
         self.textlist[tgt].delete_text()
         del self.textlist[tgt]#remove it and make become not accessible anymore
+        print("Successed to remove text")
     '''
     self.textlist will not be provided outside the class in order to prevent losting access to textobj object accidentally
     '''
     #returns the instance of textobj for devs to work on
+    '''
     def get_object(self,index):
         return self.textlist[index]
+    Just for idiots, i think don't give 'em text object either
+    '''
