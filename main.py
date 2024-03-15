@@ -9,14 +9,14 @@ main.init_window()
 mainwindow=main.get_screen_object()
 start_screen=ss.startscr()
 start_screen.load_title(main)
-easter_egg_quit_button=button.button(10,10,100,100)
+#easter_egg_quit_button=button.button(10,10,100,100)
 while True:
-    for event in pg.event.get():                                        #hello
+    for event in pg.event.get():
         if event.type == pgl.QUIT:
             main.onquit()
         if event.type==pgl.MOUSEBUTTONDOWN:
             mousepos=pg.mouse.get_pos()
-            easter_egg_quit_button.onclick(main.onquit(),mousepos)
+            #easter_egg_quit_button.onclick(main.onquit(),mousepos)
 
     #show background if it's there
     start_screen.show_background(mainwindow)
