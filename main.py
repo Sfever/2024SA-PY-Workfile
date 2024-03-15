@@ -11,7 +11,7 @@ start_screen=ss.startscr()
 start_screen.load_title(main)
 easter_egg_quit_button=button.button(10,10,100,100)
 while True:
-    for event in pg.event.get():
+    for event in pg.event.get():                                        #hello
         if event.type == pgl.QUIT:
             main.onquit()
         if event.type==pgl.MOUSEBUTTONDOWN:
