@@ -35,9 +35,8 @@ class textobj:
         return self.surface#returns rendered surface
     def get_dimensions(self):
         return self.text.size(self.title)
-    #make surface invisible
     def delete_text(self):
-        self.surface.set_alpha(0)
+        self.surface.set_alpha(0)#make surface invisible
         pg.display.update()
         print("Successed to remove text")
 

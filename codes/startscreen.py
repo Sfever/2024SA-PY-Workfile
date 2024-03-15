@@ -3,16 +3,18 @@ Start screen codes, Nothing more
 '''
 import pygame as pg
 from . import textview as tv
+from . import button
+from . import init
 import os
 import json
 class startscr:
-    bgexist=0
-    textview=""
-    font4title=""
     def __init__(self):
         self.bgexist=0
         self.textview=tv.textview()
-        self.font4title=self.textview.new_text()
+        font4title=self.textview.new_text()
+        self.textlist=[]
+        self.textlist.append(font4title)
+        self.title_text=len(self.textlist)-1
         if os.access("../res/bg.png",os.R_OK):
             self.bg=pg.image.load("../res/bg.png").convert()
             self.bgexist=1
@@ -24,20 +26,37 @@ class startscr:
             with open(main.config_path,'r') as config_reader:#read configs
                 config=json.load(config_reader)
                 #load title text properties from config.json
-            self.textview.textlist[self.font4title].set_color(config["font_color"])
-            self.textview.textlist[self.font4title].set_font(config["font"])
-            self.textview.textlist[self.font4title].set_content(config["title"])
-            self.textview.textlist[self.font4title].set_size(config["font_size"])
-        print("Text is load successfully")
+            self.textview.textlist[self.textlist[self.title_text]].set_color(config["font_color"])
+            self.textview.textlist[self.textlist[self.title_text]].set_font(config["font"])
+            self.textview.textlist[self.textlist[self.title_text]].set_content(config["title"])
+            self.textview.textlist[self.textlist[self.title_text]].set_size(config["font_size"])
     def show_title(self,window,main):
-        self.textview.textlist[self.font4title].set_text()
-        self.textview.textlist[self.font4title].render_surface()
-        F_width,F_height=self.textview.textlist[self.font4title].get_dimensions()
-        window.blit(self.textview.textlist[self.font4title].get_surface(),((main.get_reso_horizontal()-F_width)/2,100))
+        self.textview.textlist[self.textlist[self.title_text]].set_text()
+        self.textview.textlist[self.textlist[self.title_text]].render_surface()
+        F_width,F_height=self.textview.textlist[self.textlist[self.title_text]].get_dimensions()
+        window.blit(self.textview.textlist[self.textlist[self.title_text]].get_surface(),((main.get_reso_horizontal()-F_width)/2,100))
         pg.display.update()
     def show_background(self,window):
         if self.bgexist==1:
             window.blit(self.bg,(0,0))
             pg.display.update()
-
+    def destroy_window(self):
+        for i in self.textlist:
+            self.textview.del_text(i)
+    def show_start_exit_button_text(self,window:pg.surface,main:init.inital):
+        start_button_text=self.textview.new_text()
+        quit_button_text=self.textview.new_text()
+        self.textlist.append(start_button_text)
+        self.start_button_text=len(self.textlist)-1
+        self.textlist.append(quit_button_text)
+        self.quit_button_text=len(self.textlist)-1
+        self.textview.textlist[self.textlist[self.start_button_text]].set_content("START GAME")
+        self.textview.textlist[self.textlist[self.quit_button_text]].set_content("QUIT GAME")
+        self.textview.textlist[self.textlist[self.start_button_text]].set_text()
+        self.textview.textlist[self.textlist[self.quit_button_text]].set_text()
+        self.textview.textlist[self.textlist[self.start_button_text]].render_surface()
+        self.textview.textlist[self.textlist[self.quit_button_text]].render_surface()
+        S_width,S_height=self.textview.textlist[self.textlist[self.start_button_text]].get_dimensions()
+        Q_width,Q_height=self.textview.textlist[self.textlist[self.quit_button_text]].get_dimensions()
+        window.blit(self.textview.textlist[self.textlist[self.start_button_text]].get_surface(),((main.get_reso_horizontal()-S_width)/2),(main.get_reso_vertical()))
 
