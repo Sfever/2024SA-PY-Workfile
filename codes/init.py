@@ -11,6 +11,7 @@ import sys
 import random
 #This files is used to intialize only
 #No actual function
+#typehints
 class inital:
     config_exist=0
     config_path="./settings/config.json"
@@ -64,6 +65,7 @@ class inital:
         return [self.get_reso_horizontal(),self.get_reso_vertical()]
     def init_window(self):
         self.screen=pg.display.set_mode([self.W_width,self.W_height],pg.RESIZABLE)
+        #print(type(self.screen))
         pg.display.set_caption(self.caption)#initializing window
     def onquit(self):
         pg.quit()

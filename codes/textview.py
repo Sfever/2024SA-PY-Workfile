@@ -3,6 +3,7 @@ This file is used to display and operate any type of text in the game
 All texts should use this file
 Please do not use your own implentation
 '''
+#typehints
 import pygame as pg
 class textobj:
     text=""
@@ -17,13 +18,13 @@ class textobj:
         self.size=30
         self.font="arial"
         self.title="Fuck this world"
-    def set_color(self,color):
+    def set_color(self,color:list):
         self.color=color
-    def set_font(self, font):
+    def set_font(self, font:str):
         self.font=font
-    def set_size(self,size):
+    def set_size(self,size:int):
         self.size=size
-    def set_content(self,content):
+    def set_content(self,content:str):
         self.title=content
     def set_text(self):
         self.text=pg.font.SysFont(self.font,self.size)
@@ -46,12 +47,11 @@ class textview:
     def new_text(self):
         newtext=textobj()
         self.textlist.append(newtext)
-        print("A text is added successfully")
         return len(self.textlist)-1
     def del_text(self,tgt):
         self.textlist[tgt].delete_text()
         del self.textlist[tgt]#remove it and make become not accessible anymore
-        print("Successed to remove text")
+        #print("Successed to remove text")
     '''
     self.textlist will not be provided outside the class in order to prevent losting access to textobj object accidentally
     '''
