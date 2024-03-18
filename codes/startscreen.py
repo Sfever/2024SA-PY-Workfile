@@ -75,6 +75,4 @@ class startscr:
         self.buttonslist.append(quit_button)
         self.quit_button=len(self.buttonslist)-1
     def onpress_start_screen(self,mousepos,startaction,quitaction):
-        self.buttons.buttonlist[self.buttonslist[self.start_button]].onclick(startaction,mousepos)
-        self.buttons.buttonlist[self.buttonslist[self.quit_button]].onclick(quitaction,mousepos)
-
+        return [self.buttons.buttonlist[self.buttonslist[self.start_button]].onclick(startaction,mousepos), self.buttons.buttonlist[self.buttonslist[self.quit_button]].onclick(quitaction,mousepos)]

@@ -10,7 +10,8 @@ class button_ins:
             if mousepos[1] > self.y:
                 if mousepos[0] < self.x+self.width:
                     if mousepos[1] < self.y+self.height:
-                        action()
+                        return action()
+        return None
 class button:
     def __init__(self):
         self.buttonlist=[]
