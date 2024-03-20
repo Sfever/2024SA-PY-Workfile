@@ -1,6 +1,6 @@
 # HELLO
 
-Welcome to *Github*, a.k.a *__GAYHUB__*  
+Welcome to *Github*, a.k.a *__GAYYYYYYYYYYHUB__*  
 For you, it maybe your first exprience of a __*Open-Source*__ Project.  
 Meanwhile, it could be your first time to hear about __*Git*__, __*Version Control*__ and some many other things.  
 No worry, it will not hurt you... at least for now  
