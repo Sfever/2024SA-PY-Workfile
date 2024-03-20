@@ -60,7 +60,7 @@ class startscr:
         self.textview.textlist[self.textlist[self.start_button_text]].set_text()
         self.textview.textlist[self.textlist[self.quit_button_text]].set_text()
         self.textview.textlist[self.textlist[self.start_button_text]].render_surface()
-        self.textview.textlist[self.textlist[self.quit_button_text]].render_surface()
+        self.textview.textlist[self.textlist[self.quit_button_text]].render_surface()#TEXT SURFACE
         S_width,S_height=self.textview.textlist[self.textlist[self.start_button_text]].get_dimensions()
         Q_width,Q_height=self.textview.textlist[self.textlist[self.quit_button_text]].get_dimensions()
         window.blit(self.textview.textlist[self.textlist[self.start_button_text]].get_surface(),((main.get_reso_horizontal()-S_width)/2,(main.get_reso_vertical()-S_height)/2))
