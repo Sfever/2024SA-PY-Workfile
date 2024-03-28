@@ -1,7 +1,4 @@
 #typehints
-'''
-It's Button!
-'''
 class button_ins:
     def __init__(self,posx,posy,width,height):
         self.x=posx

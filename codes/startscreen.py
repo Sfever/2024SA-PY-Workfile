@@ -6,8 +6,10 @@ import pygame as pg
 from . import textview as tv
 from . import button
 from . import init
+from . import music
 import os
 import json
+from threading import Thread
 class startscr:
     def __init__(self):
         self.bgexist=0
@@ -20,16 +22,16 @@ class startscr:
         self.buttonslist=[]
         #Maybe could read background image path from config.json
         #Also Move config reader into init.py
-        if os.access("../res/bg.png",os.R_OK):
-            self.bg=pg.image.load("../res/bg.png").convert()
+        if os.access("./res/bg.png",os.R_OK):
+            self.bg=pg.image.load("./res/bg.png").convert()
             self.bgexist=1
         print("Initilization of start screen complete successfully")
     #loading texts
     def load_title(self,main:init.inital):
         if main.config_exist==1:
-            config={}
-            with open(main.config_path,'r') as config_reader:#read configs
-                config=json.load(config_reader)
+            config=main.get_config()
+            #with open(main.config_path,'r') as config_reader:
+            #    config=json.load(config_reader)
                 #load title text properties from config.json
             self.textview.textlist[self.textlist[self.title_text]].set_color(config["font_color"])
             self.textview.textlist[self.textlist[self.title_text]].set_font(config["font"])
@@ -60,7 +62,7 @@ class startscr:
         self.textview.textlist[self.textlist[self.start_button_text]].set_text()
         self.textview.textlist[self.textlist[self.quit_button_text]].set_text()
         self.textview.textlist[self.textlist[self.start_button_text]].render_surface()
-        self.textview.textlist[self.textlist[self.quit_button_text]].render_surface()#TEXT SURFACE
+        self.textview.textlist[self.textlist[self.quit_button_text]].render_surface()
         S_width,S_height=self.textview.textlist[self.textlist[self.start_button_text]].get_dimensions()
         Q_width,Q_height=self.textview.textlist[self.textlist[self.quit_button_text]].get_dimensions()
         window.blit(self.textview.textlist[self.textlist[self.start_button_text]].get_surface(),((main.get_reso_horizontal()-S_width)/2,(main.get_reso_vertical()-S_height)/2))
@@ -74,5 +76,14 @@ class startscr:
         self.start_button=len(self.buttonslist)-1
         self.buttonslist.append(quit_button)
         self.quit_button=len(self.buttonslist)-1
+    def play_music(self,music_path):
+        self.musicplayer=music.MusicPlayer()
+        self.musicplayer.set_path(music_path)
+        self.musicplayer.play()
+    def get_player(self):
+        return self.musicplayer
     def onpress_start_screen(self,mousepos,startaction,quitaction):
         return [self.buttons.buttonlist[self.buttonslist[self.start_button]].onclick(startaction,mousepos), self.buttons.buttonlist[self.buttonslist[self.quit_button]].onclick(quitaction,mousepos)]
+        
+       
+
