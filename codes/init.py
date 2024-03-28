@@ -67,9 +67,17 @@ class inital:
         self.screen=pg.display.set_mode([self.W_width,self.W_height],pg.RESIZABLE)
         #print(type(self.screen))
         pg.display.set_caption(self.caption)#initializing window
+        print("Init Success")
     def onquit(self):
         pg.quit()
         end_time=time.time()
         print("quit success, run time",(end_time-self.start_time),"seconds")
         sys.exit()
+    def get_config(self):
+        if self.config_exist==1:
+            with open(self.config_path,'r') as config_reader:
+                config=json.load(config_reader)
+                return config
+        else:
+            return None
         
