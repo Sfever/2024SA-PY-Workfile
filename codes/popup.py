@@ -1,4 +1,3 @@
-import tkinter
 from tkinter import messagebox
 class PopupWindow():
     def __init__(self) -> None:
