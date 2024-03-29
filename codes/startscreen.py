@@ -28,7 +28,7 @@ class startscr:
         print("Initilization of start screen complete successfully")
     #loading texts
     def load_title(self,main:init.inital):
-        if main.config_exist==1:
+        if main.configExist==1:
             config=main.get_config()
             #with open(main.config_path,'r') as config_reader:
             #    config=json.load(config_reader)

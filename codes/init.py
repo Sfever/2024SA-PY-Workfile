@@ -9,35 +9,34 @@ import tqdm.rich as tr
 import time
 import sys
 import random
+from . import popup
 #This files is used to intialize only
 #No actual function
 #typehints
 class inital:
-    config_exist=0
-    config_path="./settings/config.json"
-    W_width=0
-    W_height=0
-    caption="Pending"
-    screen=""
-    start_time=0
     def __init__(self):
         self.start_time=time.time()
+        self.popupManager=popup.PopupWindow()
+        self.configPath="./settings/config.json"
+        self.configExist=0
+        self.caption="Just a Title"
         pg.init()
-        if os.path.exists(self.config_path):
-            if os.access(self.config_path,os.R_OK):
-                self.config_exist=1
-        if self.config_exist==0:
+        if os.path.exists(self.configPath):
+            if os.access(self.configPath,os.R_OK):
+                self.configExist=1
+        if self.configExist==0:
             warnings.warn("config.json can not be read,loading defaults...")
+            self.popupManager.ShowWarning("Config Not found!")
             for i in tr.trange(100):
                 time.sleep(round(random.uniform(0.01,0.2),2))#absolutely weird, this progress bar indicates nothing
                 self.W_width=720
                 self.W_height=480
             time.sleep(1)
-#config detection
+        #config detection
         else:
             print("Loading config from config.json...")
             config={}
-            with open(self.config_path,'r') as config_reader:#read configs
+            with open(self.configPath,'r') as config_reader:#read configs
                 config=json.load(config_reader)
             jump_bar=config["jumpbar"]
             if jump_bar!=True:
@@ -55,7 +54,7 @@ class inital:
         return self.screen
     #get config exist or not
     def get_config_status(self):
-        return self.config_exist
+        return self.configExist
     #get resolutions
     def get_reso_horizontal(self):
         return self.W_width
@@ -74,8 +73,8 @@ class inital:
         print("quit success, run time",(end_time-self.start_time),"seconds")
         sys.exit()
     def get_config(self):
-        if self.config_exist==1:
-            with open(self.config_path,'r') as config_reader:
+        if self.configExist==1:
+            with open(self.configPath,'r') as config_reader:
                 config=json.load(config_reader)
                 return config
         else:
