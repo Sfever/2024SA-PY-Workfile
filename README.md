@@ -19,7 +19,33 @@ This game engine using ___json___ files for describing stories.
 
 ## Using
 
-Pull the repo, run `main.py` and you're on the way!
+Pull the repo first
+
+Then follow the instructions below:
+
+### Install Python
+
+This should work on any platform using Python 3.9 or higher, currently, this is tested to work on Ubuntu 22.04 LTS, Windows 11, Windows 10 and MacOS on Apple Sillicon
+
+But you need to install Python on your own, [__*STFW*__](http://www.catb.org/~esr/faqs/smart-questions.html#rtfm)
+
+### Install Requirements
+
+`pip -r requirements.txt` or `pip3`, if you're using Unix/Linux
+
+### Install [FFmpeg](https://ffmpeg.org/download.html)
+
+Windows: `winget ffmpeg` or `scoop ffmpeg`
+
+MacOS: `brew install ffmpeg`
+
+Linux: Since you're using linux distros, build them from source or finding a package by yourself.
+
+### Run
+
+`python main.py` or `python3 main.py`, depends on your platform
+
+If you run into errors, [__*STFW*__](http://www.catb.org/~esr/faqs/smart-questions.html#rtfm) before open a new issue, please follow the contributing guidelines.
 
 ## Contributing
 
