@@ -6,4 +6,6 @@ mdurl==0.1.2
 pygame==2.5.2
 rich==13.7.1
 tqdm==4.66.2
+pydub==0.25.1
+
 

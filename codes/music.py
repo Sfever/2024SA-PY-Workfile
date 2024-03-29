@@ -1,9 +1,7 @@
 import time
 import pydub
-import simpleaudio as sa
 import os
 import pydub.playback
-import threading
 from multiprocessing import Process
 
 class MusicPlayer:
