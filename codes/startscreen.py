@@ -78,8 +78,8 @@ class startscr:
         self.quit_button=len(self.buttonslist)-1
     def play_music(self,music_path):
         self.musicplayer=music.MusicPlayer()
-        self.musicplayer.set_path(music_path)
-        self.musicplayer.play()
+        self.musicplayer.SetPath(music_path)
+        self.musicplayer.Play()
     def get_player(self):
         return self.musicplayer
     def onpress_start_screen(self,mousepos,startaction,quitaction):

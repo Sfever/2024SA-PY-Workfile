@@ -46,7 +46,7 @@ def main():
             music_player_ss=start_screen.get_player()
             is_start_screen=2
         elif is_game_screen==1:
-            music_player_ss.stop()
+            music_player_ss.Stop()
             main.init_window()
             is_game_screen=2
         #print("3")
