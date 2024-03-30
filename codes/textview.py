@@ -4,48 +4,48 @@ All texts should use this file
 Please do not use your own implentation
 '''
 #typehints
-import pygame as pg  #Import pygame and store it as a pg library for subsequent calls.
-class textobj:       #The textobj class facilitates subsequent calls
-    def __init__(self):#initialisation
-        self.text=""     
-        self.surface=""   
-        self.color=[255,255,255]  #Setting the initial colour
-        self.size=30    #Setting the initial size
-        self.font="arial"  #Setting the initial font
-        self.title="Fuck this world"   #setting the title
-    def set_color(self,color:list): #Setting up a list of colours (creating groups of variables)
+import pygame as pg
+class _TextObject:
+    def __init__(self):
+        self.text:pg.font.Font
+        self.surface:pg.surface.Surface
+        self.color=[255,255,255]
+        self.size=30
+        self.font="arial"
+        self.title="Fuck this world"
+    def SetColor(self,color:list):
         self.color=color
-    def set_font(self, font:str):
+    def SetFont(self, font:str):
         self.font=font
-    def set_size(self,size:int):
+    def SetSize(self,size:int):
         self.size=size
-    def set_content(self,content:str):
+    def SetContent(self,content:str):
         self.title=content
-    def set_text(self):
-        self.text=pg.font.SysFont(self.font,self.size) #Setting the value of a variable
-    def render_surface(self):
+    def SetText(self):
+        self.text=pg.font.SysFont(self.font,self.size)
+    def RenderSurface(self):
         self.surface=self.text.render(self.title,True,tuple(self.color))
-    def get_text(self):
+    def GetText(self):
         return self.text#returns the object of font
-    def get_surface(self):
+    def GetSurface(self):
         return self.surface#returns rendered surface
-    def get_dimensions(self):
+    def GetDimensions(self):
         return self.text.size(self.title)
-    def delete_text(self):
+    def DeleteText(self):
         self.surface.set_alpha(0)#make surface invisible
         pg.display.update()
-        print("Successed to remove text") #print it out at the last
+        print("Successed to remove text")
 
 class textview:
-    def __init__(self): #initialisation
-        self.textlist=[]
-    def new_text(self):  #Creating Text Object
-        newtext=textobj()
-        self.textlist.append(newtext)
-        return len(self.textlist)-1
-    def del_text(self,tgt): #Delete thw Text Object
-        self.textlist[tgt].delete_text()
-        del self.textlist[tgt]#remove it and make become not accessible anymore
+    def __init__(self):
+        self.textList:list[_TextObject]=[]
+    def NewText(self):
+        newtext=_TextObject()
+        self.textList.append(newtext)
+        return len(self.textList)-1
+    def DeleteText(self,tgt):
+        self.textList[tgt].DeleteText()
+        del self.textList[tgt]#remove it and make become not accessible anymore
         #print("Successed to remove text")
     '''
     self.textlist will not be provided outside the class in order to prevent losting access to textobj object accidentally

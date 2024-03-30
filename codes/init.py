@@ -32,7 +32,7 @@ class inital:
                 self.W_width=720
                 self.W_height=480
             time.sleep(1)
-        #config detection
+#config detection
         else:
             print("Loading config from config.json...")
             config={}
@@ -72,11 +72,11 @@ class inital:
         end_time=time.time()
         print("quit success, run time",(end_time-self.start_time),"seconds")
         sys.exit()
-    def get_config(self):
+    def get_config(self)->list:
         if self.configExist==1:
             with open(self.configPath,'r') as config_reader:
                 config=json.load(config_reader)
                 return config
         else:
-            return None
+            return []
         
