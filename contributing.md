@@ -25,7 +25,7 @@ You're welcomed here to contribute to this repo. However, several important rule
 - ## Issues
 
   - You're welcomed to open a issue here for any problem that __YOU CANNOT FIND A SOLUTION__, search the web before you ask.
-  - Codes should run anyway on most platforms, this tested on Ubuntu, Windows and MacOS
+  - Codes should run anyway on most platforms, they're tested on Ubuntu, Windows and MacOS
   - They may have bugs, you can always open an issue/pull request on it.
   - Running on Non-Offical python interpreter may cause problems and you need to figure it out yourself. For example, python implentations on iOS or Android.
 
