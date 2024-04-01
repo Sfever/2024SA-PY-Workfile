@@ -50,29 +50,32 @@ class inital:
         end_time=time.time()
         print("Intialize suceess with time",(end_time-self.start_time),"seconds")
     #get screen object for other files to draw
-    def get_screen_object(self):
+    '''
+    def GetScreenObject(self):
         return self.screen
     #get config exist or not
-    def get_config_status(self):
+    def GetConfigStatus(self):
         return self.configExist
     #get resolutions
-    def get_reso_horizontal(self):
+    def GetResolutionH(self):
         return self.W_width
-    def get_reso_vertical(self):
+    def GetResolutionV(self):
         return self.W_height
-    def get_window_size(self):
-        return [self.get_reso_horizontal(),self.get_reso_vertical()]
-    def init_window(self):
+    You can always access with . 
+    '''
+    def GetWindowSize (self):
+        return [self.W_width,self.W_height]
+    def InitializeWindow(self):
         self.screen=pg.display.set_mode([self.W_width,self.W_height],pg.RESIZABLE)
         #print(type(self.screen))
         pg.display.set_caption(self.caption)#initializing window
         print("Init Success")
-    def onquit(self):
+    def OnQuit(self):
         pg.quit()
         end_time=time.time()
         print("quit success, run time",(end_time-self.start_time),"seconds")
         sys.exit()
-    def get_config(self)->list:
+    def GetConfig(self)->list:
         if self.configExist==1:
             with open(self.configPath,'r') as config_reader:
                 config=json.load(config_reader)

@@ -27,7 +27,7 @@ class StartScreen:
     #loading texts
     def LoadTitle(self,main:init.inital):
         if main.configExist==1:
-            config:list=main.get_config()
+            config:list=main.GetConfig()
             #with open(main.config_path,'r') as config_reader:
             #    config=json.load(config_reader)
                 #load title text properties from config.json
@@ -39,7 +39,7 @@ class StartScreen:
         self.textview.textList[self.textList[self.title_text]].SetText()
         self.textview.textList[self.textList[self.title_text]].RenderSurface()
         F_width,F_height=self.textview.textList[self.textList[self.title_text]].GetDimensions()
-        window.blit(self.textview.textList[self.textList[self.title_text]].GetSurface(),((main.get_reso_horizontal()-F_width)/2,100))
+        window.blit(self.textview.textList[self.textList[self.title_text]].GetSurface(),((main.W_width-F_width)/2,100))
         pg.display.update()
     def ShowBackground(self,window:pg.surface.Surface):
         if self.bgexist==1:
@@ -63,13 +63,13 @@ class StartScreen:
         self.textview.textList[self.textList[self.quit_button_text]].RenderSurface()
         S_width,S_height=self.textview.textList[self.textList[self.start_button_text]].GetDimensions()
         Q_width,Q_height=self.textview.textList[self.textList[self.quit_button_text]].GetDimensions()
-        window.blit(self.textview.textList[self.textList[self.start_button_text]].GetSurface(),((main.get_reso_horizontal()-S_width)/2,(main.get_reso_vertical()-S_height)/2))
-        window.blit(self.textview.textList[self.textList[self.quit_button_text]].GetSurface(),((main.get_reso_horizontal()-Q_width)/2,(main.get_reso_vertical()-S_height)/2+100))
+        window.blit(self.textview.textList[self.textList[self.start_button_text]].GetSurface(),((main.W_width-S_width)/2,(main.W_height-S_height)/2))
+        window.blit(self.textview.textList[self.textList[self.quit_button_text]].GetSurface(),((main.W_width-Q_width)/2,(main.W_height-S_height)/2+100))
     def StartExitButton(self,main:init.inital):
         S_width,S_height=self.textview.textList[self.textList[self.start_button_text]].GetDimensions()
         Q_width,Q_height=self.textview.textList[self.textList[self.quit_button_text]].GetDimensions()
-        start_button=self.buttons.NewButton((main.get_reso_horizontal()-S_width)/2,(main.get_reso_vertical()-S_height)/2,S_width,S_height)
-        quit_button=self.buttons.NewButton((main.get_reso_horizontal()-Q_width)/2,(main.get_reso_vertical()-S_height)/2+100,Q_width,Q_height)
+        start_button=self.buttons.NewButton((main.W_width-S_width)/2,(main.W_height-S_height)/2,S_width,S_height)
+        quit_button=self.buttons.NewButton((main.W_width-Q_width)/2,(main.W_height-S_height)/2+100,Q_width,Q_height)
         self.buttonslist.append(start_button)
         self.start_button=len(self.buttonslist)-1
         self.buttonslist.append(quit_button)
@@ -78,8 +78,6 @@ class StartScreen:
         self.musicplayer=music.MusicPlayer()
         self.musicplayer.SetPath(music_path)
         self.musicplayer.Play()
-    def GetPlayer(self):
-        return self.musicplayer
     def OnPress(self,mousepos,startaction,quitaction):
         return [self.buttons.buttonList[self.buttonslist[self.start_button]].OnClick(startaction,mousepos), self.buttons.buttonList[self.buttonslist[self.quit_button]].OnClick(quitaction,mousepos)]
         
