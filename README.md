@@ -6,7 +6,7 @@ Currently we can not determine what name should we have for this project, leave 
 
 ## For rookies
 
-[read this](/welcome-to-here.md)
+[Read this](/welcome-to-here.md)
 
 ## For Meishi Campus Participators
 
