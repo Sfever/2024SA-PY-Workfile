@@ -59,3 +59,10 @@ def main():
 
 if __name__=="__main__":
     main()
+'''
+Something to say:
+For SA participators, you had proved you really likes the project, you have great contributes to this project, so thanks for your contributing.
+Especially Lambert, thanks for your passion in this project, also Regina, for providing emotion supports.
+Thanks all the developers of open source projects these codes used, without your efforts, this could never be achieved.
+--From the repo owner, github @sfever
+'''
