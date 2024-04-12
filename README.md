@@ -41,6 +41,12 @@ MacOS: `brew install ffmpeg`
 
 Linux: Since you're using linux distros, build them from source or finding a package by yourself.
 
+### Native Windows
+
+Codes of native win32 popup windows is provided in [/x64/Debug/](/x64/Debug/) folder, currently successfully compiled using latest VS2022 and msvc 14.39.
+
+Linux and MacOS are currently not supported, Linux's version is currently only a plan and there will never be a MacOS version from me.
+
 ### Run
 
 `python main.py` or `python3 main.py`, depends on your platform
