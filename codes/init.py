@@ -26,7 +26,7 @@ class inital:
                 self.configExist=1
         if self.configExist==0:
             warnings.warn("config.json can not be read,loading defaults...")
-            self.popupManager.ShowWarning("Config Not found!")
+            self.popupManager.ShowNativePop("a","a")
             for i in tr.trange(100):
                 time.sleep(round(random.uniform(0.01,0.2),2))#absolutely weird, this progress bar indicates nothing
                 self.W_width=720
@@ -75,11 +75,10 @@ class inital:
         end_time=time.time()
         print("quit success, run time",(end_time-self.start_time),"seconds")
         sys.exit()
-    def GetConfig(self)->list:
+    def GetConfig(self)->dict:
         if self.configExist==1:
             with open(self.configPath,'r') as config_reader:
                 config=json.load(config_reader)
                 return config
         else:
-            return []
-        
+            return {}
