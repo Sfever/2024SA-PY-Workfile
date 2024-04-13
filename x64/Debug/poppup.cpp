@@ -35,9 +35,19 @@ PyObject* ShowWindowWindows(PyObject* self, PyObject* args) {
 	return PyLong_FromLong(returnvalue);
 }
 
+PyObject* ShowWindowLinux(PyObject* self, PyObject* args) {
+	char* content;
+	char* title;
+	int success = PyArg_ParseTuple(args, "ss", &content,&title);
+	if (!success) return NULL;
+	const char* commandline = "zenity --waring --text=" + *content ;
+	long returnvalue = system(commandline);
+	return PyLong_FromLong(returnvalue);
+}
 
 static PyMethodDef PopMethods[] = {
 	{"PopWin",(PyCFunction)ShowWindowWindows,METH_VARARGS,"Show Native Windows Popups"},
+	{"PopLinux",(PyCFunction)ShowWindowLinux,METH_VARARGS,"Show Native Linux Poapups"},
 	{NULL,NULL,0,NULL}
 };
 static PyModuleDef nativepopup_module = {
